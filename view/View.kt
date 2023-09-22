@@ -6,4 +6,5 @@ interface View {
     fun printMessage(message: String)
     fun printField()
     fun enterShipCoordinates(shipType: ShipType): String
+    fun takeShot(): String
 }
