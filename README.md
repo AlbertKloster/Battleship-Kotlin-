@@ -14,7 +14,7 @@ The greater-than symbol followed by a space (`> `) represents the user input. No
 
 ### Example 1:
 ```
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -30,7 +30,7 @@ Enter the coordinates of the Aircraft Carrier (5 cells):
 
 > F3 F7
 
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -46,7 +46,7 @@ Enter the coordinates of the Battleship (4 cells):
 
 > A1 D1
 
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~
 B O ~ ~ ~ ~ ~ ~ ~ ~ ~
 C O ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -66,7 +66,7 @@ Error! Wrong length of the Submarine! Try again:
 
 > J10 J8
 
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~
 B O ~ ~ ~ ~ ~ ~ ~ ~ ~
 C O ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -86,7 +86,7 @@ Error! Wrong ship location! Try again:
 
 > B9 D9
 
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~
 B O ~ ~ ~ ~ ~ ~ ~ O ~
 C O ~ ~ ~ ~ ~ ~ ~ O ~
@@ -106,7 +106,7 @@ Error! You placed it too close to another one. Try again:
 
 > I2 J2
 
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~
 B O ~ ~ ~ ~ ~ ~ ~ O ~
 C O ~ ~ ~ ~ ~ ~ ~ O ~
@@ -120,7 +120,7 @@ J ~ O ~ ~ ~ ~ ~ O O O
 
 The game starts!
 
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~
 B O ~ ~ ~ ~ ~ ~ ~ O ~
 C O ~ ~ ~ ~ ~ ~ ~ O ~
@@ -136,7 +136,7 @@ Take a shot!
 
 > A1
 
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A X ~ ~ ~ ~ ~ ~ ~ ~ ~
 B O ~ ~ ~ ~ ~ ~ ~ O ~
 C O ~ ~ ~ ~ ~ ~ ~ O ~
@@ -156,7 +156,7 @@ You hit a ship!
 ...
 The game starts!
 
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A O ~ ~ ~ ~ ~ ~ ~ ~ ~
 B O ~ ~ ~ ~ ~ ~ ~ O ~
 C O ~ ~ ~ ~ ~ ~ ~ O ~
@@ -176,7 +176,7 @@ Error! You entered the wrong coordinates! Try again:
 
 > A2
 
-1 2 3 4 5 6 7 8 9 10
+  1 2 3 4 5 6 7 8 9 10
 A O M ~ ~ ~ ~ ~ ~ ~ ~
 B O ~ ~ ~ ~ ~ ~ ~ O ~
 C O ~ ~ ~ ~ ~ ~ ~ O ~
