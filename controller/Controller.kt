@@ -51,8 +51,8 @@ class Controller(private val view: View, private val field: Field) {
         return Fleet(ships)
     }
 
-    private fun printField() {
-        view.printField()
+    private fun printField(fogOfWar: Boolean = false) {
+        view.printField(fogOfWar)
     }
 
     private fun Ship.isTooClose(): Boolean {
@@ -88,7 +88,7 @@ class Controller(private val view: View, private val field: Field) {
     fun start() {
         view.printMessage("The game starts!")
 
-        printField()
+        printField(true)
         view.printMessage("Take a shot!")
         while (true) {
             try {
@@ -99,11 +99,11 @@ class Controller(private val view: View, private val field: Field) {
                 val cell = getCellByCoordinate(coordinate)!!
                 if (cell.state == State.SHIP) {
                     cell.state = State.HIT
-                    printField()
+                    printField(true)
                     view.printMessage("You hit a ship!")
                 } else {
                     cell.state = State.MISS
-                    printField()
+                    printField(true)
                     view.printMessage("You missed!")
                 }
                 break
@@ -112,7 +112,7 @@ class Controller(private val view: View, private val field: Field) {
             }
 
         }
-
+        printField()
     }
 
 }

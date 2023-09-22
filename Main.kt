@@ -9,5 +9,4 @@ fun main() {
     val view = Console(field)
     val controller = Controller(view, field)
     controller.start()
-
 }
