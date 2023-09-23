@@ -4,7 +4,7 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
-class Ship(shipType: ShipType, startCoordinate: Coordinate, endCoordinate: Coordinate) {
+class Ship(field: Field, shipType: ShipType, startCoordinate: Coordinate, endCoordinate: Coordinate) {
     val cells: List<Cell>
 
     init {
@@ -14,7 +14,8 @@ class Ship(shipType: ShipType, startCoordinate: Coordinate, endCoordinate: Coord
                 throw RuntimeException("Error! Wrong length of the ${shipType.string}!")
 
             for (row in min(startCoordinate.row, endCoordinate.row)..max(startCoordinate.row, endCoordinate.row))
-                cells.add(Cell(Coordinate(row, startCoordinate.col), State.SHIP))
+                findCellByCoordinate(field, Coordinate(row, startCoordinate.col))?.let { cells.add(it) }
+
             this.cells = cells
 
         } else if (startCoordinate.row == endCoordinate.row) {
@@ -22,9 +23,14 @@ class Ship(shipType: ShipType, startCoordinate: Coordinate, endCoordinate: Coord
                 throw RuntimeException("Error! Wrong length of the ${shipType.string}!")
 
             for (col in min(startCoordinate.col, endCoordinate.col)..max(startCoordinate.col, endCoordinate.col))
-                cells.add(Cell(Coordinate(startCoordinate.row, col), State.SHIP))
+                findCellByCoordinate(field, Coordinate(startCoordinate.row, col))?.let { cells.add(it) }
+
             this.cells = cells
 
         } else throw RuntimeException("Error! Wrong ship location!")
+    }
+
+    private fun findCellByCoordinate(field: Field, coordinate: Coordinate): Cell? {
+        return field.value.flatten().find { it.coordinate == coordinate }
     }
 }

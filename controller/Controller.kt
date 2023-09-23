@@ -36,7 +36,7 @@ class Controller(private val view: View, private val field: Field) {
                 val startCoordinate = parseCoordinate(startString)
                 val endCoordinate = parseCoordinate(endString)
                 try {
-                    val ship = Ship(shipType, startCoordinate, endCoordinate)
+                    val ship = Ship(field, shipType, startCoordinate, endCoordinate)
                     if (ship.isTooClose())
                         throw RuntimeException("Error! You placed it too close to another one.")
                     ships.add(ship)
@@ -87,32 +87,46 @@ class Controller(private val view: View, private val field: Field) {
 
     fun start() {
         view.printMessage("The game starts!")
-
         printField(true)
-        view.printMessage("Take a shot!")
-        while (true) {
-            try {
-                val shotString = view.takeShot()
-                if (!Regex("[A-J]([1-9]|10)").matches(shotString))
-                    throw RuntimeException("Error! You entered the wrong coordinates!")
-                val coordinate = parseCoordinate(shotString)
-                val cell = getCellByCoordinate(coordinate)!!
-                if (cell.state == State.SHIP) {
-                    cell.state = State.HIT
-                    printField(true)
-                    view.printMessage("You hit a ship!")
-                } else {
-                    cell.state = State.MISS
-                    printField(true)
-                    view.printMessage("You missed!")
-                }
-                break
-            } catch (e: RuntimeException) {
-                view.printMessage("\n${e.message} Try again:\n")
-            }
 
+        view.printMessage("Take a shot!")
+
+        var gameOver = false
+        while (!gameOver) {
+            while (true) {
+                try {
+                    val shotString = view.takeShot()
+                    if (!Regex("[A-J]([1-9]|10)").matches(shotString))
+                        throw RuntimeException("Error! You entered the wrong coordinates!")
+                    val coordinate = parseCoordinate(shotString)
+                    val cell = getCellByCoordinate(coordinate)!!
+                    if (cell.state == State.SHIP || cell.state == State.HIT) {
+                        cell.state = State.HIT
+                        val ship = fleet.ships.find { it.cells.contains(cell) }
+                        printField(true)
+
+                        if (fleet.ships.flatMap { it.cells }.count { it.state == State.SHIP } == 0) {
+                            gameOver = true
+                        } else if (ship?.cells?.count { it.state == State.SHIP } == 0) {
+                            view.printMessage("You sank a ship! Specify a new target:\n")
+                        } else {
+                            view.printMessage("You hit a ship! Try again:\n")
+                        }
+
+                    } else {
+                        cell.state = State.MISS
+                        printField(true)
+                        view.printMessage("You missed! Try again:\n")
+                    }
+                    break
+                } catch (e: RuntimeException) {
+                    view.printMessage("\n${e.message} Try again:\n")
+                }
+
+            }
         }
         printField()
+        view.printMessage("You sank the last ship. You won. Congratulations!")
     }
 
 }
