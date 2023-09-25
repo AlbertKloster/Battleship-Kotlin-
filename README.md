@@ -1,15 +1,17 @@
-# Stage 4/5: The end of the war
+# Stage 5/5: Friend or foe
 ## Description
-It looks like everything is ready for full-scale battlefield maneuvers! This time, don't cease fire until all the ships are sunk. At the end of the game, your program should print a congratulatory message to the winner: `You sank the last ship. You won. Congratulations!`
+Here is a good way to show off your new skills: offer a friend to play a computer game that you wrote yourself! Of course, it is much more fun to play Battleship with someone else: the possibility of winning or losing adds a thrill to the game!
+
+Both players add the ships to their fields one by one (no peeking!), and then start shelling each other until one of them succeeds. To make the game fair and prevent the players from peeping at each other's fields, after each move add the message `Press Enter and pass the move to another player`, which will clear the screen.
 
 ## Objectives
-To complete this step, you should add a check that all the ships were successfully sunk. The game is supposed to go on until all ships go down. The program should print an extra message `You sank a ship!` when all the cells of a particular ship have been hit. Take a look at the examples below!
-
-> For the sake of simplicity; the project does not consider shots to coordinates that are already shot at to be any different. Regardless of whether the coordinate was previously a hit or a miss, you should display `You hit a ship!` and `You missed!` again respectively.
+To complete this stage and the entire project, add a PvP component to your game. Now the player will see not only the opponent's screen but their own as well. Place the opponent's screen at the top and your field at the bottom.
 
 ## Example
 The greater-than symbol followed by a space (`> `) represents the user input. Notice that it's not part of the input.
 ```
+Player 1, place your ships on the game field
+
   1 2 3 4 5 6 7 8 9 10
 A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -114,7 +116,9 @@ H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 I ~ O ~ ~ ~ ~ ~ ~ ~ ~
 J ~ O ~ ~ ~ ~ ~ O O O
 
-The game starts!
+Press Enter and pass the move to another player
+...
+Player 2, place your ships to the game field
 
   1 2 3 4 5 6 7 8 9 10
 A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -128,149 +132,132 @@ H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-Take a shot!
+Enter the coordinates of the Aircraft Carrier (5 cells):
 
-> A1
+> H2 H6
 
   1 2 3 4 5 6 7 8 9 10
-A X ~ ~ ~ ~ ~ ~ ~ ~ ~
+A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+H ~ O O O O O ~ ~ ~ ~
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-You hit a ship! Try again:
+Enter the coordinates of the Battleship (4 cells):
 
-> A2
+> F3 F6
 
   1 2 3 4 5 6 7 8 9 10
-A X M ~ ~ ~ ~ ~ ~ ~ ~
+A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+F ~ ~ O O O O ~ ~ ~ ~
 G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+H ~ O O O O O ~ ~ ~ ~
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-You missed. Try again:
+Enter the coordinates of the Submarine (3 cells):
 
-> B1
+> H8 F8
 
   1 2 3 4 5 6 7 8 9 10
-A X M ~ ~ ~ ~ ~ ~ ~ ~
-B X ~ ~ ~ ~ ~ ~ ~ ~ ~
+A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+F ~ ~ O O O O ~ O ~ ~
+G ~ ~ ~ ~ ~ ~ ~ O ~ ~
+H ~ O O O O O ~ O ~ ~
 I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-You hit a ship! Try again:
-
-> C1
-
-  1 2 3 4 5 6 7 8 9 10
-A X M ~ ~ ~ ~ ~ ~ ~ ~
-B X ~ ~ ~ ~ ~ ~ ~ ~ ~
-C X ~ ~ ~ ~ ~ ~ ~ ~ ~
-D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-You hit a ship! Try again:
-
-> D1
-
-  1 2 3 4 5 6 7 8 9 10
-A X M ~ ~ ~ ~ ~ ~ ~ ~
-B X ~ ~ ~ ~ ~ ~ ~ ~ ~
-C X ~ ~ ~ ~ ~ ~ ~ ~ ~
-D X ~ ~ ~ ~ ~ ~ ~ ~ ~
-E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-You sank a ship! Specify a new target:
-
-> E4
-
-  1 2 3 4 5 6 7 8 9 10
-A X M ~ ~ ~ ~ ~ ~ ~ ~
-B X ~ ~ ~ ~ ~ ~ ~ ~ ~
-C X ~ ~ ~ ~ ~ ~ ~ ~ ~
-D X ~ ~ ~ ~ ~ ~ ~ ~ ~
-E ~ ~ ~ M ~ ~ ~ ~ ~ ~
-F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-You missed. Try again:
-
-> C9
-
-  1 2 3 4 5 6 7 8 9 10
-A X M ~ ~ ~ ~ ~ ~ ~ ~
-B X ~ ~ ~ ~ ~ ~ ~ ~ ~
-C X ~ ~ ~ ~ ~ ~ ~ X ~
-D X ~ ~ ~ ~ ~ ~ ~ ~ ~
-E ~ ~ ~ M ~ ~ ~ ~ ~ ~
-F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-You hit a ship! Try again:
 
 ...
 
   1 2 3 4 5 6 7 8 9 10
-A X M ~ ~ ~ ~ ~ ~ ~ ~
-B X ~ ~ M ~ ~ M ~ X ~
-C X ~ ~ ~ ~ ~ ~ ~ X ~
-D X ~ ~ ~ ~ M ~ ~ X ~
-E ~ ~ ~ M ~ ~ M ~ M ~
-F M ~ X X X X X M ~ ~
-G ~ ~ ~ ~ ~ ~ M ~ ~ ~
-H ~ M M ~ ~ ~ ~ ~ ~ M
-I ~ X ~ ~ M ~ ~ M ~ ~
-J ~ X ~ ~ ~ ~ M X X ~
+A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+C ~ ~ ~ ~ ~ ~ ~ O ~ ~
+D ~ ~ ~ O O O ~ O ~ ~
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+F ~ ~ O O O O ~ O ~ ~
+G ~ ~ ~ ~ ~ ~ ~ O ~ ~
+H ~ O O O O O ~ O ~ ~
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-You hit a ship! Try again:
-
-> J10
+Press Enter and pass the move to another player
+...
 
   1 2 3 4 5 6 7 8 9 10
-A X M ~ ~ ~ ~ ~ ~ ~ ~
-B X ~ ~ M ~ ~ M ~ X ~
-C X ~ ~ ~ ~ ~ ~ ~ X ~
-D X ~ ~ ~ ~ M ~ ~ X ~
-E ~ ~ ~ M ~ ~ M ~ M ~
-F M ~ X X X X X M ~ ~
-G ~ ~ ~ ~ ~ ~ M ~ ~ ~
-H ~ M M ~ ~ ~ ~ ~ ~ M
-I ~ X ~ ~ M ~ ~ M ~ ~
-J ~ X ~ ~ ~ ~ M X X X
+A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+---------------------
+  1 2 3 4 5 6 7 8 9 10
+A O ~ ~ ~ ~ ~ ~ ~ ~ ~
+B O ~ ~ ~ ~ ~ ~ ~ O ~
+C O ~ ~ ~ ~ ~ ~ ~ O ~
+D O ~ ~ ~ ~ ~ ~ ~ O ~
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+F ~ ~ O O O O O ~ ~ ~
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+I ~ O ~ ~ ~ ~ ~ ~ ~ ~
+J ~ O ~ ~ ~ ~ ~ O O O
 
-You sank the last ship. You won. Congratulations!
+Player 1, it's your turn:
+
+> I3
+
+You missed!
+Press Enter and pass the move to another player
+...
+
+  1 2 3 4 5 6 7 8 9 10
+A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+---------------------
+  1 2 3 4 5 6 7 8 9 10
+A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+C ~ ~ ~ ~ ~ ~ ~ O ~ ~
+D ~ ~ ~ O O O ~ O ~ ~
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+F ~ ~ O O O O ~ O ~ ~
+G ~ ~ ~ ~ ~ ~ ~ O ~ ~
+H ~ O O O O O ~ O ~ ~
+I ~ ~ M ~ ~ ~ ~ ~ ~ ~
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+Player 2, it's your turn:
+
+> A1
+
+You hit a ship!
+Press Enter and pass the move to another player
+...
 ```
